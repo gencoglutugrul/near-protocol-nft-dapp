@@ -10,7 +10,7 @@ const Collectibles = () => {
       const response = await window.contract.nft_tokens_for_owner({
         account_id: window.accountId,
       })
-      console.log(response)
+      
       setCollectibles(response)
       setLoading(false)
     }catch (e) {
@@ -39,16 +39,14 @@ const Collectibles = () => {
 const Collectible = (data) =>{
   return (
     <>
-      <div style={{
-        maxWidth: '200px',
-        marginLeft: '10px',
-        display: 'inline-block'
-      }}>
-        <p>{data.item.metadata.title}</p>
-        <img src={data.item.metadata.media} style={{
-          width: '100%'
-        }}/>
-      </div>
+      <a href={data.item.metadata.media} target={'_blank'} rel="noreferrer">
+        <figure className={'figurefx pushup'} style={{
+          maxWidth: '100%'
+        }}>
+          <img src={data.item.metadata.media} alt={data.item.metadata.title} style={{width: '100%'}} />
+          <figcaption>{data.item.metadata.title}</figcaption>
+        </figure>
+      </a>  
     </>
   )}
 export default Collectibles
