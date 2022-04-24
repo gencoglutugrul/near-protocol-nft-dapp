@@ -16,7 +16,7 @@ export default function App() {
       <main>
         <h5 style={{textAlign:'right'}}>Hello, {window.accountId}! (
           <a onClick={logout} style={{cursor: 'pointer'}}>
-			    	Sign out
+            Sign out
           </a>)</h5>
 
         <Mint />
